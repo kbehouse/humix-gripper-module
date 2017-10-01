@@ -1,14 +1,10 @@
 ## Overview
 
-ROS module for Humix 
+This is Humix Module for Gripper 
 
-First, install humix-think & humix-sense, install Humix Guide:
+The gripper is controlled by Raspberry Pi(RPi)
 
-https://hackpad.com/Humix-Installation-Guide-yIkJDZZRGof
-
-Second, install ROS version "kinetic":
-
-http://wiki.ros.org/kinetic/Installation 
+Control the gripper with RPi GIPO 7, 13, 14, 15
 
 # Get Started
 
@@ -16,44 +12,26 @@ http://wiki.ros.org/kinetic/Installation
 
 * Install humix-ros-module
 ```
-git clone git@github.com:kbehouse/humix-ros-module.git
-cd humix-ros-module
+git clone git@github.com:kbehouse/humix-gripper-module.git
+cd humix-gripper-module
 npm install
 ```
-
-
 ## Start module
-
-* Start ROS (for this example)
-```
-# ROS core
-roscore
-
-# turtlebot  (Default install in ROS)
-rosrun turtlesim turtlesim_node
-```
 
 * Start Humix
 ```
-#start humix-think
+# In PC, start humix-think
 cd ~/humix/humix-think/
 npm start
 
-#start humix-sense
+# In raspberry pi, start humix-sense
 cd ~/humix/humix-sense
 npm start
 
-#start humix-ros-module
-cd ~/humix/humix-ros-module
+# In raspberry pi,start humix-gripper-module
+cd ~/humix/humix-gripper-module
 npm start
 ```
 
-* Open Humix
+* Open Humix in PC
 http://localhost:3000
-
-
-## Video
-
-<a href="https://youtu.be/aLF1cb5rmuk" target="_blank"><img src="http://img.youtube.com/vi/aLF1cb5rmuk/0.jpg" 
-alt="Humix for ROS" width="480" height="360" border="10" /></a>
-
