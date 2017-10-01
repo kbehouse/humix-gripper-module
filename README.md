@@ -4,7 +4,7 @@ This is Humix Module for Gripper
 
 The gripper is controlled by Raspberry Pi(RPi)
 
-Control the gripper with RPi GIPO 7, 13, 14, 15
+Control the gripper with RPi GIPO 7   (setting in index.js -> GripperPIN)
 
 # Get Started
 
@@ -20,12 +20,13 @@ npm install
 
 * Start Humix
 ```
-# In PC, start humix-think
+# In MAC or PC, start humix-think
 cd ~/humix/humix-think/
 npm start
 
 # In raspberry pi, start humix-sense
 cd ~/humix/humix-sense
+vim config.js    # Modify thinkURL & senseId
 npm start
 
 # In raspberry pi,start humix-gripper-module
@@ -33,5 +34,5 @@ cd ~/humix/humix-gripper-module
 npm start
 ```
 
-* Open Humix in PC
+* Open Humix in MAC or PC
 http://localhost:3000
