@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "humix-logger": "^1.0.4",
-    "humix-sense": "^1.0.0"
+    "humix-sense": "^1.0.0",
+    "rpi-gpio": "^0.9.1"
   },
   "repository": {
     "type": "git",

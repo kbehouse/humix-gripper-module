@@ -1,3 +1,30 @@
+//--------------------------------GPIO--------------------------------//
+var GripperPIN = 7;
+
+var gpio = require('rpi-gpio');
+function gripper_open(){
+    gpio.write(GripperPIN, true , function(err) {
+		if (err) {
+            //throw err;
+            console.warn('Written to pin '+GripperPIN  +'  cmd = true' + gripper +' FAIL err='+err);
+        }
+		//process.exit();
+	});
+    
+}
+
+function gripper_close(){
+    gpio.write(GripperPIN, false , function(err) {
+		if (err) {
+            //throw err;
+            console.warn('Written to pin '+GripperPIN  +'  cmd = false  FAIL err='+err);
+        }
+		//process.exit();
+	});
+    
+}
+
+//--------------------------------Humix--------------------------------//
 var HumixSense = require('humix-sense');
 var config = {
     "moduleName" : "humix-gripper-module",
@@ -23,9 +50,13 @@ function gripper_cmd(i_cmd){
 
     if(i_cmd == 'open' || i_cmd =='true'){
         logger.info('Open Gripper');
+        gpio.setup(GripperPIN, gpio.DIR_OUT, gripper_open);
 
     }else if(i_cmd == 'close' || i_cmd =='False'){
         logger.info('Close Gripper');
+
+        gpio.setup(GripperPIN, gpio.DIR_OUT, gripper_close);
+
 
     }else{
         logger.error('Fault Command = ' + i_cmd);
@@ -39,10 +70,13 @@ humix.on('connection', function(humixSensorModule){
     logger = hsm.getLogger();
 
     hsm.on("gripper_cmd", function (data) {
-        // logger.info('received gripper_cmd data:'+data);
 
         gripper_cmd(data);
     })
+
+
+    logger.info('humix-gripper-module READY!');
+
 
 
 });
